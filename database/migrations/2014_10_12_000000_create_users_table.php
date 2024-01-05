@@ -14,10 +14,22 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('username')->unique();
             $table->string('email')->unique();
+            $table->string('phone')->nullable(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('cpf')->nullable(true)->unique();
+            $table->string('inscricao_crp_crm')->nullable(true);
+            $table->date('birth_date')->nullable(true);
+            $table->text('academic_formations')->nullable(true);
+            $table->text('syndromes_special_situations_experience')->nullable(true);
+            $table->text('age_range_service')->nullable(true);
+            $table->text('approach_lines')->nullable(true);
+            $table->smallInteger('is_admin')->nullable(true);
+            $table->smallInteger('status')->default('1');
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
