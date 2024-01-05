@@ -292,97 +292,121 @@ return [
     'menu' => [
         // Navbar items:
         [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
+            'text' => 'Painel',
+            'url'  => '/app/admin/dashboard',
+            'icon' => 'fas fa-dashboard',
+            'can'  => 'is_admin',
         ],
         [
-            'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
-
-        // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
+            'text' => 'Meus horários',
+            'url'  => '/app/schedule/user-schedules',
+            'icon' => 'fas fa-clock',
         ],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Agenda',
+            'url'  => '/app/schedule',
+            'icon' => 'fas fa-calendar-alt',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Agenda Administrador',
+            'url'  => '/app/schedule/index-administrador',
+            'icon' => 'fas fa-calendar-alt',
+            'can'  => 'is_admin'
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Agenda - Consulta',
+            'url'  => '/app/schedule/schedule-search',
+            'icon' => 'fas fa-calendar-check',
+            'can'  => 'is_admin'
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text' => 'Fechamentos do mês',
+            'url'  => '/app/schedule/fechamento-mes',
+            'icon' => 'fas fa-file-invoice-dollar',
+        ],
+        [
+            'text' => 'Clientes',
+            'url'  => '/app/user/clients',
+            'icon' => 'fas fa-users',
+            'can'  => 'is_admin',
+        ],
+        [
+            'text' => 'Financeiro',
+            'icon' => 'fas fa-coins',
+            'can'  => 'is_admin',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Cobrança',
+                    'url'  => '/app/admin/finance/charge',
+                    'icon' => 'fas fa-hand-holding-usd',
+                    'can'  => 'is_admin',
                 ],
             ],
         ],
-        ['header' => 'labels'],
+        
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text' => 'Relatórios',
+            'icon' => 'fas fa-chart-line',
+            'can'  => 'is_super_admin',
+            'submenu' => [
+                [
+                    'text' => 'Rendimento por período',
+                    'url'  => '/app/admin/reports/yield-per-period',
+                    'icon' => 'fas fa-file-invoice-dollar',
+                ],
+                [
+                    'text' => 'Rendimento por cliente',
+                    'url'  => '/app/admin/reports/yield-per-customer',
+                    'icon' => 'fas fa-file-invoice-dollar',
+                ],
+                // [
+                //     'text' => 'Pagamentos',
+                //     'url'  => '/app/reports/',
+                //     'icon' => 'fas fa-file-invoice-dollar',
+                // ],
+            ],
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
+            'text' => 'Salas',
+            'url'  => '/app/rooms',
+            'icon' => 'fas fa-door-open',
+            'can'  => 'is_admin',
         ],
         [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            'text' => 'Configurações',
+            'url'  => '/app/settings',
+            'icon' => 'fas fa-cog',
+            'can'  => 'is_admin',
         ],
+        [
+            'text' => 'Ajuda',
+            'icon' => 'fas fa-question-circle',
+            'can'  => 'is_admin',
+            'submenu' => [
+                [
+                    'text' => 'Atualizações',
+                    'url'  => '/app/admin/help/release-notes',
+                    'icon' => 'fas fa-file-code',
+                    'can'  => 'is_admin',
+                ],
+            ],
+        ],
+        // ['header' => 'labels'],
+        // [
+        //     'text'       => 'important',
+        //     'icon_color' => 'red',
+        //     'url'        => '#',
+        // ],
+        // [
+        //     'text'       => 'warning',
+        //     'icon_color' => 'yellow',
+        //     'url'        => '#',
+        // ],
+        // [
+        //     'text'       => 'information',
+        //     'icon_color' => 'cyan',
+        //     'url'        => '#',
+        // ],
     ],
 
     /*
@@ -421,36 +445,36 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
                 ],
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
                 ],
             ],

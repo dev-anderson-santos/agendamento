@@ -507,3 +507,26 @@ if(!function_exists('pdf')) {
             // ]);
     }
 }
+
+if(!function_exists('getEspecialidade')) {
+
+    function getEspecialidade($especialidade = null) {
+        $especialidades = array(
+            "psicologo" => "Psicólogo",
+            "psicopedagogo" => "Psicopedagogo",
+            "fonoaudiologo" => "Fonoaudiólogo",
+            "fisioterapeuta" => "Fisioterapeuta",
+            "terapeuta-ocupacional" => "Terapeuta Ocupacional",
+            "neurologista" => "Neurologista",
+            "psiquiatra" => "Psiquiatra",
+            "ortopedista" => "Ortopedista",
+            "fonoaudiologo-pediatrico" => "Fonoaudiólogo Pediátrico",
+            "fonoaudiologo-educacional" => "Fonoaudiólogo Educacional",
+            "psicologo-clinico" => "Psicólogo Clínico"
+            // Adicione mais especialidades conforme necessário
+        );
+    
+        // Verifica se a especialidade fornecida existe no array
+        return is_null($especialidade) ? $especialidades : $especialidades[$especialidade];
+    }
+}

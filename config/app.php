@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Sao_Paulo',
 
     /*
     |--------------------------------------------------------------------------
@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'pt-BR',
 
     /*
     |--------------------------------------------------------------------------
@@ -185,4 +185,14 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Days to show in schedule view
+    |--------------------------------------------------------------------------
+    |
+    | This days to show, show the number of days to show in the schedule view.
+    |
+    */
+
+    'days_to_show' => env('DAYS_TO_SHOW', 7),
 ];
