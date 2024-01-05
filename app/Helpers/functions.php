@@ -512,21 +512,22 @@ if(!function_exists('getEspecialidade')) {
 
     function getEspecialidade($especialidade = null) {
         $especialidades = array(
-            "psicologo" => "Psicólogo",
-            "psicopedagogo" => "Psicopedagogo",
-            "fonoaudiologo" => "Fonoaudiólogo",
             "fisioterapeuta" => "Fisioterapeuta",
-            "terapeuta-ocupacional" => "Terapeuta Ocupacional",
-            "neurologista" => "Neurologista",
-            "psiquiatra" => "Psiquiatra",
-            "ortopedista" => "Ortopedista",
-            "fonoaudiologo-pediatrico" => "Fonoaudiólogo Pediátrico",
+            "fonoaudiologo" => "Fonoaudiólogo",
             "fonoaudiologo-educacional" => "Fonoaudiólogo Educacional",
-            "psicologo-clinico" => "Psicólogo Clínico"
-            // Adicione mais especialidades conforme necessário
+            "fonoaudiologo-infantil" => "Fonoaudiólogo Infantil",
+            "neurologista" => "Neurologista",
+            "ortopedista" => "Ortopedista",
+            "pediatra" => "Pediatra",
+            "psicologo" => "Psicólogo",
+            "psicologo-clinico" => "Psicólogo Clínico",
+            "psicologo-infantil" => "Psicólogo Infantil",
+            "psicopedagogo" => "Psicopedagogo",
+            "psiquiatra" => "Psiquiatra",
+            "terapeuta-ocupacional" => "Terapeuta Ocupacional",
+            "terapeuta-ocupacional-infantil" => "Terapeuta Ocupacional Infantil"
         );
     
-        // Verifica se a especialidade fornecida existe no array
         return is_null($especialidade) ? $especialidades : $especialidades[$especialidade];
     }
 }
