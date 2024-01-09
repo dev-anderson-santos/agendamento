@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use App\Models\ScheduleModel;
+use App\Models\SpecialtiesModel;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -510,24 +511,7 @@ if(!function_exists('pdf')) {
 
 if(!function_exists('getEspecialidade')) {
 
-    function getEspecialidade($especialidade = null) {
-        $especialidades = array(
-            "fisioterapeuta" => "Fisioterapeuta",
-            "fonoaudiologo" => "Fonoaudiólogo",
-            "fonoaudiologo-educacional" => "Fonoaudiólogo Educacional",
-            "fonoaudiologo-infantil" => "Fonoaudiólogo Infantil",
-            "neurologista" => "Neurologista",
-            "ortopedista" => "Ortopedista",
-            "pediatra" => "Pediatra",
-            "psicologo" => "Psicólogo",
-            "psicologo-clinico" => "Psicólogo Clínico",
-            "psicologo-infantil" => "Psicólogo Infantil",
-            "psicopedagogo" => "Psicopedagogo",
-            "psiquiatra" => "Psiquiatra",
-            "terapeuta-ocupacional" => "Terapeuta Ocupacional",
-            "terapeuta-ocupacional-infantil" => "Terapeuta Ocupacional Infantil"
-        );
-    
-        return is_null($especialidade) ? $especialidades : $especialidades[$especialidade];
+    function getEspecialidade() {
+        return SpecialtiesModel::orderBY('name', 'ASC')->get();
     }
 }
